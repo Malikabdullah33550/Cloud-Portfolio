@@ -9,6 +9,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 html {
@@ -16,7 +18,7 @@ html {
 }
 
 p {
-  color: rgb(85, 85, 85);
+  color: var(--text-secondary);
 }
 
 /* TRANSITION */
@@ -39,14 +41,18 @@ nav {
   height: 17vh;
 }
 
+.nav-links a {
+  color: var(--text-primary);
+}
 .nav-links {
+  color: var(--text-primary);
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
 }
 
 a {
-  color: black;
+  color: var(--text-primary);
   text-decoration: none;
   text-decoration-color: white;
 }
@@ -89,7 +95,7 @@ a:hover {
 .hamburger-icon span {
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: var(--text-primary);
   transition: all 0.3 ease-in-out;
 }
 
@@ -97,24 +103,25 @@ a:hover {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: white;
+  /* background-color: white; */
   width: fit-content;
   max-height: 0;
   overflow: hidden;
   transition: all 0.3 ease-in-out;
 }
 
-.menu-links a {
+.menu-links li a {
   display: block;
   padding: 10px;
   text-align: center;
   font-size: 1.5rem;
-  color: black;
+  color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3 ease-in-out;
 }
 
 .menu-links li {
+  color: var(--text-primary);
   list-style: none;
 }
 
@@ -196,6 +203,7 @@ section {
 
 .title {
   font-size: 3rem;
+  margin: 1rem 0 4rem 0;
   text-align: center;
 }
 
@@ -264,6 +272,7 @@ section {
 /* ABOUT SECTION */
 
 #about {
+  color: var(--text-secondary);
   position: relative;
 }
 
@@ -296,10 +305,10 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: var(--bg-primary);
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border-color: var(--border-primary);
   text-align: center;
 }
 
@@ -314,9 +323,15 @@ section {
   margin: auto 0;
 }
 
+.text-container {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
 /* EXPERIENCE SECTION */
 
 #experience {
+  margin: 5rem 10rem;
   position: relative;
 }
 
@@ -360,8 +375,8 @@ article .icon {
 }
 
 .color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+  border-color: var(--border-primary);
+  background: var(--bg-primary);
 }
 
 .project-img {
@@ -446,4 +461,21 @@ footer p {
 .dark-mode {
   background-color: #121212;
   color: #ffffff;
+}
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #121212;
+  --text-secondary: #555555;
+  --border-primary: rgb(163, 163, 163);
+  --button-bg: rgb(53, 53, 53);
+  --button-hover: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border-primary: #333333;
+  --button-bg: #2d2d2d;
+  --button-hover: #404040;
 }
