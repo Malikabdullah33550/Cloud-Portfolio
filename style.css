@@ -430,3 +430,20 @@ footer {
 footer p {
   text-align: center;
 }
+
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
