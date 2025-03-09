@@ -2,11 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg-primary);
@@ -64,7 +59,31 @@ a:hover {
   text-decoration-color: rgb(181, 181, 181);
 }
 
+/* Default styles for light mode */
+.light-mode-logo {
+  display: block;
+}
+.dark-mode-logo {
+  display: none;
+}
+
+/* Logo styles for dark mode */
+[data-theme="dark"] .light-mode-logo {
+  display: none;
+}
+[data-theme="dark"] .dark-mode-logo {
+  display: block;
+}
+
+.logoImg {
+  height: auto;
+  width: 150px;
+  padding: 0;
+  margin: 0;
+}
 .logo {
+  padding: 0;
+  margin: 0;
   font-size: 2rem;
 }
 
@@ -157,16 +176,27 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  min-height: 96vh; /* Change from fixed height to minimum height */
+  height: auto; /* Allow sections to expand based on content */
+
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
 }
 
-.section-container {
-  display: flex;
-}
 
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .about-Title {
+    margin-bottom: 3rem; /* Even more space at problematic screen sizes */
+  }
+
+  .section-container {
+    display: flex;
+    position: relative;
+    height: 80%;
+    gap: 2rem; /* Reduce gap at these screen sizes */
+  }
+}
 /* PROFILE SECTION */
 
 #profile {
@@ -194,6 +224,8 @@ section {
 
 .section__text__p1 {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .section__text__p2 {
@@ -202,8 +234,7 @@ section {
 }
 
 .title {
-  font-size: 3rem;
-  margin: 1rem 0 4rem 0;
+  font-size: 2.3rem;
   text-align: center;
 }
 
@@ -274,6 +305,7 @@ section {
 #about {
   color: var(--text-secondary);
   position: relative;
+  padding-bottom: 2rem; /* Add padding at the bottom */
 }
 
 .about-containers {
@@ -313,10 +345,13 @@ section {
 }
 
 .section-container {
+  display: flex;
   gap: 4rem;
   height: 80%;
 }
-
+.about-Title {
+  margin-bottom: 2rem; /* Increase from 5px to give more space */
+}
 .section__pic-container {
   height: 400px;
   width: 400px;
@@ -478,4 +513,183 @@ footer p {
   --border-primary: #333333;
   --button-bg: #2d2d2d;
   --button-hover: #404040;
+}
+
+.togglerContainer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.togglerContainer {
+  text-align: center;
+}
+
+.togglerContainer input[type="checkbox"] {
+  display: none;
+}
+
+.TogglerBtn {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+}
+
+.togglerBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 68px;
+  height: 34px;
+  background-color: var(--text-primary);
+  transition: all 0.4s ease;
+  position: relative;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 2px solid var(--text-primary);
+  overflow: hidden;
+}
+
+.togglerBox .ball {
+  width: 26px;
+  height: 26px;
+  background-color: var(--bg-primary);
+  transition: all 0.4s ease;
+  position: absolute;
+  border-radius: 50%;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+input:checked + label .togglerBox .ball {
+  left: calc(100% - 26px);
+}
+
+.togglerBox .scenary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  padding: 0 7px;
+  height: 100%;
+}
+
+.togglerBox .scenary svg {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.togglerBox .scenary .moon {
+  margin-right: auto;
+}
+
+.togglerBox .scenary .sun {
+  margin-left: auto;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+[data-theme="dark"] .togglerBox {
+  background-color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+[data-theme="dark"] .togglerBox .ball {
+  background-color: var(--text-primary);
+}
+
+/* Add to your CSS file */
+#marquee-section {
+  height: auto;
+  min-height: auto;
+  padding: 2rem 0;
+  margin: 0 10rem;
+}
+
+.marquee-container {
+  margin-bottom: 4rem;
+}
+
+.marquee-title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  padding: 1.5rem 0;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: var(--border-primary);
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.marquee-item img {
+  height: 80px;
+  width: auto;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.marquee-item img:hover {
+  transform: scale(1.1);
+}
+
+.marquee-item span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Make marquee responsive */
+@media screen and (max-width: 768px) {
+  #marquee-section {
+    margin: 0 2rem;
+  }
+  
+  .marquee-item img {
+    height: 60px;
+  }
 }
